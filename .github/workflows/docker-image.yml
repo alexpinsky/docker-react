@@ -15,5 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build the Docker image
-      - run: docker build -t alexpinsky/docker-react -f Dockerfile.dev .
-      - run: docker run -e CI=true alexpinsky/docker-react npm run test
+        run: docker build -t alexpinsky/docker-react -f Dockerfile.dev .
+        
+      - name: Run tests
+        run: docker run -e CI=true alexpinsky/docker-react npm run test
+
